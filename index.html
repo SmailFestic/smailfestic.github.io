@@ -13,35 +13,89 @@
             background-color: #fbfbfb;
             color: #333;
         }
+
+        /* Stil za zgornjo navigacijsko vrstico */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border-bottom: 1px solid #eee; /* Tanka črta pod menijem */
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.2em;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .navbar-links a {
+            text-decoration: none;
+            color: #666;
+            margin-left: 20px;
+            font-size: 0.95em;
+        }
+
+        .navbar-links a:hover {
+            color: #000; /* Ko greš z miško čez, potemni */
+        }
+
+        /* Glavni del strani */
         .container {
             max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
+
         h1 {
             font-size: 2.5em;
             margin-bottom: 5px;
             font-weight: normal;
         }
+
         .subtitle {
             color: #666;
             margin-bottom: 30px;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #eee;
+            margin: 40px 0 20px 0;
         }
     </style>
 </head>
 <body>
 
+    <!-- Zgornja vrstica / Meni -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">Smail Festić</a>
+        <div class="navbar-links">
+            <a href="#">Zapisi</a>
+            <a href="#">O meni</a>
+        </div>
+    </nav>
+
+    <!-- Vsebina strani -->
     <div class="container">
+        <!-- Če že imaš naloženo sliko, bo ta vrstica spodaj delovala -->
+        <img src="profilna.jpg" alt="Smail Festić" style="max-width: 180px; border-radius: 50%; margin-bottom: 20px;">
+        
         <h1>Smail Festić</h1>
         <p class="subtitle">Osebna spletna stran</p>
-        <img src="Smail.jpg" alt="Smail Festić" style="max-width: 200px; margin: 20px 0;">
-        <hr>
         
         <p>Pozdravljeni! To je moja prva spletna stran, ustvarjena s pomočjo GitHub Pages.</p>
-        <p style="margin-top: 40px;">
-    <strong>Kontakt:</strong> 
-    <a href="https://www.facebook.com/mkcsmailfestic/?locale=sl_SI" target="_blank" style="color: #1877F2; text-decoration: none;">Facebook</a>
-</p>
+        
+        <hr>
+        
+        <!-- Spodnji del s kontaktom -->
+        <p>
+            <strong>Kontakt:</strong> 
+            <a href="https://www.facebook.com/mkcsmailfestic/?locale=sl_SI" target="_blank" style="color: #1877F2; text-decoration: none; font-weight: bold;">Facebook</a>
+        </p>
     </div>
 
 </body>
