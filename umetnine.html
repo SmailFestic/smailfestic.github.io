@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smail Festić - Umetnine</title>
     <style>
-        /* Vedno omogočimo drsnik, da meni ne skače levo/desno med zavihki */
-       html {
-    overflow-y: scroll !important;
+        /* Skrijemo desni drsnik na vseh brskalnikih, a ohranimo možnost skrolanja */
+        html {
+            overflow-y: auto;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        html::-webkit-scrollbar {
+            display: none; /* Chrome, Safari and Opera */
         }
 
         body {
@@ -18,13 +24,14 @@
             color: #333;
             min-height: 100vh;
             
-            /* Slika v ozadju */
+            /* Slika se predvaja neposredno v ozadju cele strani v polnih, čistih barvah */
             background-image: url('slika1.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
             
+            /* Gladka in mehka tranzicija ob menjavi slik */
             transition: background-image 0.8s ease-in-out;
             
             display: flex;
@@ -32,7 +39,7 @@
             justify-content: space-between;
         }
 
-        /* Zgornji pas z zameglitvijo brez dodatnih odmikov, ki bi premaknili meni */
+        /* Zgornji pas z zameglitvijo */
         .header-band {
             width: 100%;
             background-color: rgba(255, 255, 255, 0.6);
@@ -43,7 +50,7 @@
             z-index: 10;
         }
 
-        /* Meni - POPOLNOMA enake dimenzije in odmiki kot na index.html */
+        /* Meni */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -51,7 +58,7 @@
             max-width: 800px;
             width: 90%;
             margin: 0 auto;
-            padding: 20px 0; /* Točno enak padding kot na prvi strani */
+            padding: 20px 0;
             box-sizing: border-box;
         }
 
@@ -147,12 +154,12 @@
             z-index: 10;
         }
 
-        /* Noga - POPOLNOMA enake dimenzije in odmiki kot na index.html */
+        /* Noga */
         .footer {
             max-width: 800px;
             width: 90%;
             margin: 0 auto;
-            padding: 20px 0 40px 0; /* Točno enak padding kot na prvi strani */
+            padding: 20px 0 40px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
