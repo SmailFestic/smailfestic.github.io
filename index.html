@@ -5,13 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smail Festić - Domača stran</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
             font-family: 'Georgia', serif;
-            line-height: 1.6;
+            line-height: 1.8;
             margin: 0;
             padding: 0;
             color: #333;
@@ -19,26 +15,24 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
         }
 
-        /* Zgornji meni - širina 800px (točno tako kot na umetnine.html) */
+        /* Klasičen meni (identičen kot na o-meni.html) */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             max-width: 800px;
             width: 90%;
-            margin: 40px auto 0 auto; /* Odmik 40px od vrha */
-            padding: 15px 25px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            border-radius: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            margin: 0 auto;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee; /* Nežna ravna črta pod menijem */
         }
 
         .navbar-brand {
             font-weight: bold;
-            font-size: 1.1em;
+            font-size: 1.2em;
             text-decoration: none;
             color: #111;
         }
@@ -47,9 +41,7 @@
             text-decoration: none;
             color: #555;
             margin-left: 20px;
-            font-size: 0.9em;
-            font-weight: bold;
-            transition: color 0.2s ease;
+            font-size: 0.95em;
         }
 
         .navbar-links a:hover {
@@ -58,11 +50,13 @@
 
         /* Osrednji del strani */
         .container {
-            max-width: 600px;
+            max-width: 800px;
             width: 90%;
-            margin: auto; 
-            padding: 20px;
+            margin: 50px auto;
+            padding: 0 20px;
             text-align: center;
+            box-sizing: border-box;
+            flex-grow: 1;
         }
 
         /* Okrogla portretna slika na sredini */
@@ -77,58 +71,51 @@
         }
 
         h1 {
-            font-size: 2.2em;
-            margin: 0 0 5px 0;
+            font-size: 2.5em;
+            margin-bottom: 10px;
             font-weight: normal;
             color: #111;
         }
 
         .subtitle {
             color: #666;
-            font-size: 1em;
-            margin: 0 0 20px 0;
-            font-style: italic;
+            font-size: 1.1em;
+            margin-bottom: 30px;
         }
 
         .lead-text {
-            font-size: 0.95em;
-            color: #555;
+            font-size: 1.05em;
+            color: #444;
+            max-width: 600px;
             margin: 0 auto;
-            max-width: 500px;
         }
 
-        /* Spodnji kontakt - širina 400px (točno tako kot kontrolna plošča v umetnine.html) */
-        .footer-panel {
-            max-width: 400px;
-            width: 85%;
-            margin: 0 auto 40px auto; /* Odmik 40px od spodnjega roba */
-            padding: 15px 25px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            border-radius: 40px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+        /* Noga strani - identična tisti na o-meni.html */
+        .footer {
+            max-width: 800px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px 0 40px 0;
+            border-top: 1px solid #eee; /* Ravna ločilna črta spodaj */
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .footer-panel span {
-            color: #555;
+        .footer span {
+            color: #777;
             font-size: 0.9em;
-            font-weight: bold;
         }
 
-        .footer-panel a {
+        .footer a {
             color: #111;
             text-decoration: none;
             font-weight: bold;
             font-size: 0.9em;
-            border-bottom: 1px solid #111;
         }
 
-        .footer-panel a:hover {
-            color: #444;
-            border-color: #444;
+        .footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -138,7 +125,7 @@
     <nav class="navbar">
         <a class="navbar-brand" href="index.html">Smail Festić</a>
         <div class="navbar-links">
-            <a href="index.html" style="color: #000;">Domov</a>
+            <a href="index.html" style="color: #000; font-weight: bold;">Domov</a>
             <a href="o-meni.html">O meni</a>
             <a href="video.html">Video</a>
             <a href="umetnine.html">Umetnine</a>
@@ -155,11 +142,11 @@
         </p>
     </div>
 
-    <!-- Spodnja zaobljena kapsula za Kontakt -->
-    <div class="footer-panel">
+    <!-- Noga z ravnimi črtami (ravno ločilo spodaj) -->
+    <footer class="footer">
         <span>Kontakt:</span>
         <a href="https://www.facebook.com" target="_blank">Facebook</a>
-    </div>
+    </footer>
 
 </body>
 </html>
