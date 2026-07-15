@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video - Smail Festic</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: #fbfbfb;
+            color: #333;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.2em;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .navbar-links a {
+            text-decoration: none;
+            color: #666;
+            margin-left: 20px;
+            font-size: 0.95em;
+        }
+
+        .navbar-links a:hover {
+            color: #000;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #eee;
+            margin: 40px 0 20px 0;
+        }
+
+        a:focus {
+            outline: 2px solid #000;
+            outline-offset: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Meni (Video je tukaj označen kot aktiven) -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="index.html">Smail Festić</a>
+        <div class="navbar-links">
+            <a href="index.html">Domov</a>
+            <a href="o-meni.html">O meni</a>
+            <a href="video.html" style="color: #000; font-weight: bold;">Video</a>
+        </div>
+    </nav>
+
+    <!-- Vsebina strani z videom -->
+    <div class="container">
+        <h1>Medijski prispevki</h1>
+        <p class="subtitle">Predstavitveni posnetek o Mednarodnem kulturnem centru Smail Festić</p>
+        
+        <div style="text-align: center; margin: 30px 0;">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/PtRhXX7WNxg?si=Qpym9RcuB4-ivU4-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="max-width: 100%; border-radius: 8px;"></iframe>
+        </div>
+
+        <hr>
+        
+        <p>
+            <a href="index.html" style="color: #666; text-decoration: none;">&larr; Nazaj na domov</a>
+        </p>
+    </div>
+
+</body>
+</html>
