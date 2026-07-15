@@ -33,24 +33,26 @@
             justify-content: space-between;
         }
 
-        /* Zgornji meni - oblikovan kot elegantna zamegljena steklena plošča */
+        /* Zgornji pas z blago zameglitvijo in ravno črto spodaj */
+        .header-band {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.6); /* Zelo nežno svetlo ozadje */
+            backdrop-filter: blur(10px); /* Blaga zameglitev slike pod menijem */
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* Ravna črta */
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Meni (popolnoma poravnan z ostalimi stranmi) */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             max-width: 800px;
             width: 90%;
-            margin: 20px auto 0 auto;
-            padding: 15px 25px;
-            background-color: rgba(255, 255, 255, 0.75); /* Nežno belo prosojno ozadje */
-            backdrop-filter: blur(15px); /* Mehka zameglitev slike v ozadju pod menijem */
-            -webkit-backdrop-filter: blur(15px);
-            border-radius: 30px; /* Zaobljeni robovi, ki se ujemajo s spodnjimi kontrolniki */
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-            position: relative;
-            z-index: 10;
-            box-sizing: border-box;
+            margin: 0 auto;
+            padding: 20px 0;
         }
 
         .navbar-brand {
@@ -62,17 +64,16 @@
 
         .navbar-links a {
             text-decoration: none;
-            color: #444;
+            color: #555;
             margin-left: 20px;
             font-size: 0.95em;
-            font-weight: 500;
         }
 
         .navbar-links a:hover {
             color: #000;
         }
 
-        /* Osrednji del strani */
+        /* Osrednji del strani (popolnoma čist, brez filtrov čez sliko) */
         .container {
             max-width: 800px;
             width: 90%;
@@ -89,15 +90,15 @@
             margin-bottom: 5px;
             font-weight: normal;
             color: #111;
-            /* Bela senca, ki poskrbi za berljivost na poljubnem ozadju */
-            text-shadow: 0 0 12px rgba(255, 255, 255, 0.95), 0 0 6px rgba(255, 255, 255, 0.8);
+            /* Nežna senca pod besedilom za berljivost */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 5px rgba(255, 255, 255, 0.8);
         }
 
         .subtitle {
             color: #222;
             margin-bottom: 40px;
             font-size: 1.05em;
-            text-shadow: 0 0 12px rgba(255, 255, 255, 0.95), 0 0 6px rgba(255, 255, 255, 0.8);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 5px rgba(255, 255, 255, 0.8);
         }
 
         /* Nadzorna plošča za listanje slik (lebdeča prosojna vrstica) */
@@ -136,24 +137,26 @@
             min-width: 60px;
         }
 
-        /* Spodnja noga - prav tako oblikovana kot elegantna zamegljena steklena plošča */
+        /* Spodnji pas z blago zameglitvijo in ravno črto zgoraj */
+        .footer-band {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.6); /* Zelo nežno svetlo ozadje */
+            backdrop-filter: blur(10px); /* Blaga zameglitev slike pod kontaktom */
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(0, 0, 0, 0.08); /* Ravna črta */
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Noga (popolnoma poravnana z ostalimi stranmi) */
         .footer {
             max-width: 800px;
             width: 90%;
-            margin: 0 auto 25px auto;
-            padding: 15px 25px;
-            background-color: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            margin: 0 auto;
+            padding: 20px 0 40px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
-            z-index: 10;
-            box-sizing: border-box;
         }
 
         .footer span {
@@ -176,18 +179,20 @@
 </head>
 <body>
 
-    <!-- Meni -->
-    <nav class="navbar">
-        <a class="navbar-brand" href="index.html">Smail Festić</a>
-        <div class="navbar-links">
-            <a href="index.html">Domov</a>
-            <a href="o-meni.html">O meni</a>
-            <a href="video.html">Video</a>
-            <a href="umetnine.html" style="color: #000; font-weight: bold;">Umetnine</a>
-        </div>
-    </nav>
+    <!-- Zgornji pas z zameglitvijo in ravno črto spodaj -->
+    <header class="header-band">
+        <nav class="navbar">
+            <a class="navbar-brand" href="index.html">Smail Festić</a>
+            <div class="navbar-links">
+                <a href="index.html">Domov</a>
+                <a href="o-meni.html">O meni</a>
+                <a href="video.html">Video</a>
+                <a href="umetnine.html" style="color: #000; font-weight: bold;">Umetnine</a>
+            </div>
+        </nav>
+    </header>
 
-    <!-- Vsebina -->
+    <!-- Vsebina (Sredina ostane popolnoma čista in ostra) -->
     <div class="container">
         <h1>Umetnine</h1>
         <p class="subtitle">Pregled del in utrinkov iz galerije</p>
@@ -200,10 +205,12 @@
         </div>
     </div>
 
-    <!-- Noga -->
-    <footer class="footer">
-        <span>Kontakt:</span>
-        <a href="https://www.facebook.com" target="_blank">Facebook</a>
+    <!-- Spodnji pas z zameglitvijo in ravno črto zgoraj -->
+    <footer class="footer-band">
+        <div class="footer">
+            <span>Kontakt:</span>
+            <a href="https://www.facebook.com" target="_blank">Facebook</a>
+        </div>
     </footer>
 
     <!-- JavaScript za gladko prelivanje celozaslonskih slik v ozadju -->
