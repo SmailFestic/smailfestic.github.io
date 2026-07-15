@@ -6,9 +6,10 @@
     <meta name="description" content="Oglejte si predstavitveni video o ustvarjanju in delih umetnika Smaila Festića.">
     <title>Smail Festić - Video</title>
     <style>
-        /* Omogočimo standarden drsnik na vseh straneh za preprečitev skakanja menija */
-        html {
-            overflow-y: scroll;
+        /* Skrijemo drsnik na tej strani */
+        html, body {
+            overflow: hidden;
+            height: 100%;
         }
 
         body {
@@ -70,7 +71,7 @@
             max-width: 800px;
             width: 90%;
             margin: auto auto;
-            padding: 40px 20px;
+            padding: 20px;
             text-align: center;
             box-sizing: border-box;
         }
@@ -162,8 +163,7 @@
     <div class="container">
         <h1>Predstavitveni video</h1>
         <div class="video-wrapper">
-            <!-- TUKAJ VSTAVITE SVOJO ORIGINALNO POVEZAVO DO VIDEA -->
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/PtRhXX7WNxg?si=-9kTDnr7_kWM4fn_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/PtRhXX7WNxg?si=-9kTDnr7_kWM4fn_" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
     </div>
 
