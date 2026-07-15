@@ -27,7 +27,7 @@
             width: 90%;
             margin: 0 auto;
             padding: 20px 0;
-            border-bottom: 1px solid #eee; /* Nežna ravna črta pod menijem */
+            border-bottom: 1px solid #eee;
         }
 
         .navbar-brand {
@@ -52,22 +52,20 @@
         .container {
             max-width: 800px;
             width: 90%;
-            margin: 50px auto;
+            margin: 80px auto 50px auto; /* Povečan zgornji odmik na 80px za več prostora nad sliko */
             padding: 0 20px;
             text-align: center;
             box-sizing: border-box;
             flex-grow: 1;
         }
 
-        /* Okrogla portretna slika na sredini */
+        /* Oglata slika z zelo nežno zaobljenimi robovi (8px) */
         .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #fff;
+            width: 220px; /* Nekoliko večja oglata različica */
+            height: auto;
+            border-radius: 8px; /* Nežna zaobljenost robov */
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         h1 {
@@ -96,26 +94,29 @@
             width: 90%;
             margin: 0 auto;
             padding: 20px 0 40px 0;
-            border-top: 1px solid #eee; /* Ravna ločilna črta spodaj */
+            border-top: 1px solid #eee;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
+        /* Krepko zapisan kontakt */
         .footer span {
-            color: #777;
-            font-size: 0.9em;
+            color: #111;
+            font-size: 0.95em;
+            font-weight: bold;
         }
 
+        /* Facebook modra povezava s podčrtanjem */
         .footer a {
-            color: #111;
-            text-decoration: none;
+            color: #1877F2; /* Facebook modra barva */
+            text-decoration: underline; /* Vedno podčrtano */
             font-weight: bold;
-            font-size: 0.9em;
+            font-size: 0.95em;
         }
 
         .footer a:hover {
-            text-decoration: underline;
+            color: #145dbf; /* Malo temnejša modra ob prehodu z miško */
         }
     </style>
 </head>
@@ -142,7 +143,7 @@
         </p>
     </div>
 
-    <!-- Noga z ravnimi črtami (ravno ločilo spodaj) -->
+    <!-- Noga z ravnimi črtami -->
     <footer class="footer">
         <span>Kontakt:</span>
         <a href="https://www.facebook.com" target="_blank">Facebook</a>
