@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Umetnine - Smail Festić</title>
+    <title>Smail Festić - Umetnine</title>
     <style>
         body {
             font-family: 'Georgia', serif;
@@ -11,45 +11,23 @@
             margin: 0;
             padding: 0;
             color: #333;
+            background-color: #fbfbfb;
             min-height: 100vh;
-            /* Slika čez celoten zaslon v ozadju - čista in ostra */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            transition: background-image 0.8s ease-in-out;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        /* Temnejši nežen filter čez celozaslonsko sliko, 
-           da so gumbi in meni lažje berljivi, slika pa ostane povsem ostra */
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.2); /* Zelo nežen temen pridih (20%) za kontrast */
-            z-index: 1;
-        }
-
-        /* Navigacijski meni kot elegantna lebdeča ploščica */
+        /* Klasičen meni (identičen kot na index.html in o-meni.html) */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             max-width: 800px;
             width: 90%;
-            margin: 20px auto 0 auto;
-            padding: 15px 25px;
-            background-color: rgba(255, 255, 255, 0.9); /* Polprosojno belo ozadje */
-            border-radius: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-            position: relative;
-            z-index: 10;
+            margin: 0 auto;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
         }
 
         .navbar-brand {
@@ -64,54 +42,142 @@
             color: #555;
             margin-left: 20px;
             font-size: 0.95em;
-            font-weight: 500;
         }
 
         .navbar-links a:hover {
             color: #000;
         }
 
-        /* Spodnja lebdeča nadzorna plošča za listanje slik */
-        .controls-panel {
+        /* Osrednji del s predstavitvijo galerije */
+        .container {
+            max-width: 800px;
+            width: 90%;
+            margin: 50px auto;
+            padding: 0 20px;
+            text-align: center;
+            box-sizing: border-box;
+            flex-grow: 1;
+        }
+
+        .gallery-title {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        /* Ogrodje za galerijo slik */
+        .gallery-wrapper {
             position: relative;
-            z-index: 10;
-            max-width: 400px;
-            width: 85%;
-            margin: 0 auto 40px auto;
-            background-color: rgba(255, 255, 255, 0.9); /* Polprosojno belo ozadje */
-            padding: 15px 25px;
-            border-radius: 40px;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-img {
+            width: 100%;
+            max-height: 550px;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            padding: 5px;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Stranske puščice na sliki */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.2s;
+            user-select: none;
+        }
+
+        .nav-arrow:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .arrow-left {
+            left: 15px;
+        }
+
+        .arrow-right {
+            right: 15px;
+        }
+
+        /* Spodnja nadzorna vrstica s števcem in gumbi */
+        .controls-container {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .control-btn {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 8px 18px;
+            font-family: 'Georgia', serif;
+            font-size: 0.9em;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .control-btn:hover {
+            background-color: #111;
+        }
+
+        .image-counter {
+            font-size: 0.9em;
+            color: #555;
+            min-width: 50px;
+        }
+
+        /* Noga strani - popolnoma enaka kot na index.html in o-meni.html */
+        .footer {
+            max-width: 800px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px 0 40px 0;
+            border-top: 1px solid #eee;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .control-btn {
-            background-color: #222;
-            color: white;
-            border: none;
-            padding: 10px 22px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            cursor: pointer;
-            transition: background-color 0.2s, transform 0.1s;
-            font-family: inherit;
-        }
-
-        .control-btn:hover {
-            background-color: #000;
-            transform: translateY(-1px);
-        }
-
-        .control-btn:active {
-            transform: translateY(1px);
-        }
-
-        .counter {
+        .footer span {
+            color: #111;
             font-size: 0.95em;
-            color: #333;
             font-weight: bold;
+        }
+
+        .footer a {
+            color: #1877F2; /* Facebook modra */
+            text-decoration: underline;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+
+        .footer a:hover {
+            color: #145dbf;
         }
     </style>
 </head>
@@ -120,62 +186,4 @@
     <nav class="navbar">
         <a class="navbar-brand" href="index.html">Smail Festić</a>
         <div class="navbar-links">
-            <a href="index.html">Domov</a>
-            <a href="o-meni.html">O meni</a>
-            <a href="video.html">Video</a>
-            <a href="umetnine.html" style="color: #000; font-weight: bold;">Umetnine</a>
-        </div>
-    </nav>
-
-    <div></div>
-
-    <div class="controls-panel">
-        <button class="control-btn" onclick="prevImage()">Prejšnja</button>
-        <span class="counter" id="counter">1 / 5</span>
-        <button class="control-btn" onclick="nextImage()">Naslednja</button>
-    </div>
-
-    <script>
-        const images = [
-            "slika1.jpg",
-            "slika2.jpg",
-            "slika3.jpg",
-            "slika4.jpg",
-            "slika5.jpg"
-        ];
-
-        let currentIndex = 0;
-        const counterElement = document.getElementById("counter");
-
-        function updateBackground() {
-            // Nastavi novo sliko v ozadje
-            document.body.style.backgroundImage = `url('${images[currentIndex]}')`;
-            // Posodobi števec slik
-            counterElement.textContent = `${currentIndex + 1} / ${images.length}`;
-        }
-
-        function nextImage() {
-            currentIndex = (currentIndex + 1) % images.length;
-            updateBackground();
-        }
-
-        function prevImage() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            updateBackground();
-        }
-
-        // Listanje s puščicami na tipkovnici
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowRight') {
-                nextImage();
-            } else if (e.key === 'ArrowLeft') {
-                prevImage();
-            }
-        });
-
-        // Zaženemo začetno sliko takoj ko se stran naloži
-        window.onload = updateBackground;
-    </script>
-
-</body>
-</html>
+            <a href="index.html">Domov
