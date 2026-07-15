@@ -38,7 +38,7 @@
             z-index: -1; /* Plast ostane pod vsebino */
         }
 
-        /* Klasičen meni (identičen kot na index.html in o-meni.html - brez mehurčkov, da ne skače!) */
+        /* Klasičen meni (identičen kot na index.html in o-meni.html) */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -231,7 +231,7 @@
 </head>
 <body>
 
-    <!-- Meni -->
+    <!-- Meni (Identifikacija z o-meni in domov) -->
     <nav class="navbar">
         <a class="navbar-brand" href="index.html">Smail Festić</a>
         <div class="navbar-links">
@@ -288,7 +288,7 @@
         const imgElement = document.getElementById("book-img");
         const counterElement = document.getElementById("counter");
 
-        // Funkcija, ki nastavi in posodobi ozadje celotnega zaslona
+        // Nastavi začetno ozadje in sliko
         function updateBackground() {
             document.body.style.backgroundImage = `url('${images[currentIndex]}')`;
             counterElement.textContent = `${currentIndex + 1} / ${images.length}`;
@@ -331,7 +331,7 @@
             }
         });
 
-        // Zaženemo začetno ozadje takoj ko se stran naloži
+        // Zaženemo takoj ob naložitvi
         window.onload = updateBackground;
     </script>
 
