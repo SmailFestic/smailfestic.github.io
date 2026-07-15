@@ -14,7 +14,6 @@
             color: #333;
         }
 
-        /* Stil za zgornjo navigacijsko vrstico */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -22,7 +21,7 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            border-bottom: 1px solid #eee; /* Tanka črta pod menijem */
+            border-bottom: 1px solid #eee;
         }
 
         .navbar-brand {
@@ -40,10 +39,9 @@
         }
 
         .navbar-links a:hover {
-            color: #000; /* Ko greš z miško čez, potemni */
+            color: #000;
         }
 
-        /* Glavni del strani */
         .container {
             max-width: 800px;
             margin: 40px auto;
@@ -66,41 +64,36 @@
             border-top: 1px solid #eee;
             margin: 40px 0 20px 0;
         }
-        
+
         a:focus {
-    outline: 2px solid #000; /* Ustvari črn okvirček okoli povezave, ko jo izbereš s tipkovnico */
+            outline: 2px solid #000;
+            outline-offset: 3px;
         }
     </style>
 </head>
 <body>
 
-  <!-- Zgornja vrstica / Meni -->
+    <!-- Meni (Domov je tukaj označen kot aktiven) -->
     <nav class="navbar">
         <a class="navbar-brand" href="index.html">Smail Festić</a>
         <div class="navbar-links">
             <a href="index.html" style="color: #000; font-weight: bold;">Domov</a>
             <a href="o-meni.html">O meni</a>
+            <a href="video.html">Video</a>
         </div>
     </nav>
 
     <!-- Vsebina strani -->
     <div class="container">
-        <!-- Če že imaš naloženo sliko, bo ta vrstica spodaj delovala -->
-        <img src="Smail.jpg" alt="Smail Festić" style="max-width: 180px; margin-bottom: 20px;">
+        <img src="Smail.jpg" alt="Smail Festić" style="max-width: 180px; border-radius: 50%; margin-bottom: 20px;">
         
         <h1>Smail Festić</h1>
         <p class="subtitle">Osebna spletna stran</p>
         
-        <p>Pozdravljeni!<p>
-        <p>To je spletna stran, posvečena Večnosti.</p>
-<!-- Tukaj se začne YouTube posnetek -->
-        <div style="text-align: center; margin: 30px 0;">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/PtRhXX7WNxg?si=Qpym9RcuB4-ivU4-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="max-width: 100%; border-radius: 8px;"></iframe>
-        </div>
-
+        <p>Pozdravljeni! To je moja prva spletna stran, ustvarjena s pomočjo GitHub Pages.</p>
+        
         <hr>
         
-        <!-- Spodnji del s kontaktom -->
         <p>
             <strong>Kontakt:</strong> 
             <a href="https://www.facebook.com/mkcsmailfestic/?locale=sl_SI" target="_blank" style="color: #0056b3; text-decoration: underline; font-weight: bold;">Facebook</a>
