@@ -14,7 +14,7 @@
             color: #333;
         }
 
-        /* Nov lebdeči zaobljeni meni */
+       /* Zgornji meni - brez polnega ozadja, samo z zaobljeno črto okoli */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -22,10 +22,10 @@
             max-width: 800px;
             width: 90%;
             margin: 20px auto 0 auto;
-            padding: 15px 25px;
-            background-color: rgba(255, 255, 255, 0.95); /* Polprosojno belo ozadje */
-            border-radius: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08); /* Nežna senca */
+            padding: 12px 25px;
+            background-color: transparent; /* Popolnoma prosojno */
+            border: 1px solid rgba(0, 0, 0, 0.1); /* Nežna siva črta okoli in okoli */
+            border-radius: 30px; /* Enaka zaobljenost kot v galeriji */
             box-sizing: border-box;
         }
 
@@ -48,6 +48,29 @@
             color: #000;
         }
 
+        /* Spodnji kontaktni okvir - v isti širini in stilu kot zgornji meni */
+        .footer-panel {
+            max-width: 800px;
+            width: 90%;
+            margin: 40px auto 20px auto;
+            padding: 15px 25px;
+            border: 1px solid rgba(0, 0, 0, 0.1); /* Enaka obroba */
+            border-radius: 30px; /* Enaka zaobljenost */
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-panel a {
+            color: #111;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer-panel a:hover {
+            text-decoration: underline;
+        }
         .container {
             max-width: 800px;
             margin: 40px auto;
