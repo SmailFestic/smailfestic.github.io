@@ -3,40 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O meni - Smail Festic</title>
+    <title>Smail Festić - O meni</title>
     <style>
+        /* Skrijemo desni drsnik na vseh brskalnikih, a ohranimo možnost skrolanja */
         html {
-    overflow-y: scroll !important;
+            overflow-y: auto;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
         }
+
+        html::-webkit-scrollbar {
+            display: none; /* Chrome, Safari and Opera */
+        }
+
         body {
             font-family: 'Georgia', serif;
             line-height: 1.8;
             margin: 0;
             padding: 0;
-            background-color: #fbfbfb;
             color: #333;
+            min-height: 100vh;
+            background-color: #fbfbfb;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
+        /* Zgornji pas z zameglitvijo */
+        .header-band {
+            width: 100%;
+            background-color: rgba(251, 251, 251, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Meni */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             max-width: 800px;
+            width: 90%;
             margin: 0 auto;
-            padding: 20px;
-            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+            box-sizing: border-box;
         }
 
         .navbar-brand {
             font-weight: bold;
             font-size: 1.2em;
             text-decoration: none;
-            color: #333;
+            color: #111;
         }
 
         .navbar-links a {
             text-decoration: none;
-            color: #666;
+            color: #555;
             margin-left: 20px;
             font-size: 0.95em;
         }
@@ -45,64 +70,100 @@
             color: #000;
         }
 
+        /* Osrednji del strani */
         .container {
             max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-            text-align: justify;
+            width: 90%;
+            margin: auto auto;
+            padding: 40px 20px;
+            text-align: left; /* Biografija je lepše poravnana levo */
+            box-sizing: border-box;
         }
 
         h1 {
             font-size: 2.2em;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             font-weight: normal;
+            color: #111;
+            text-align: center; /* Naslov ostane na sredini */
         }
 
         p {
+            font-size: 1.05em;
+            color: #444;
             margin-bottom: 20px;
         }
 
-        hr {
-            border: 0;
-            border-top: 1px solid #eee;
-            margin: 40px 0 20px 0;
+        /* Spodnji pas z zameglitvijo */
+        .footer-band {
+            width: 100%;
+            background-color: rgba(251, 251, 251, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 10;
         }
 
-        a:focus {
-            outline: 2px solid #000;
-            outline-offset: 3px;
+        /* Noga */
+        .footer {
+            max-width: 800px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px 0 40px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .footer span {
+            color: #111;
+            font-size: 0.95em;
+            font-weight: bold;
+        }
+
+        .footer a {
+            color: #1877F2;
+            text-decoration: underline;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+
+        .footer a:hover {
+            color: #145dbf;
         }
     </style>
 </head>
 <body>
 
-    <!-- Meni s tremi povezavami -->
-    <nav class="navbar">
-        <a class="navbar-brand" href="index.html">Smail Festić</a>
-        <div class="navbar-links">
-            <a href="index.html">Domov</a>
-            <a href="o-meni.html" style="color: #000; font-weight: bold;">O meni</a>
-            <a href="video.html">Video</a>
-            <a href="umetnine.html">Umetnine</a>
-        </div>
-    </nav>
+    <!-- Zgornji pas -->
+    <header class="header-band">
+        <nav class="navbar">
+            <a class="navbar-brand" href="index.html">Smail Festić</a>
+            <div class="navbar-links">
+                <a href="index.html">Domov</a>
+                <a href="o-meni.html" style="color: #000; font-weight: bold;">O meni</a>
+                <a href="video.html">Video</a>
+                <a href="umetnine.html">Umetnine</a>
+            </div>
+        </nav>
+    </header>
 
-    <!-- Vsebina strani O meni -->
+    <!-- Vsebina -->
     <div class="container">
         <h1>O meni</h1>
-        
-        <p>Smail Festić se je rodil v ugledni muslimanski družini. Zaradi vojne se je najprej preselil v Sarajevo in nato še v Tuzlo, kjer je dokončal gimnazijo. Po neuspešnem študiju agronomije se je preusmeril v novinarstvo in kot štipendist časopisa Borba v Beogradu obiskoval visoko šolo za novinarstvo. Po končanem šolanju je svojo novinarsko pot pričel v Zagrebu in jo nadaljeval v Mariboru, kamor se je preselil takoj po odsluženem vojaškem roku. V mestu ob Dravi je deloval kot dopisnik Borbe in Večernjih novosti, sodeloval pa je tudi s časnikom Večer in z revijo 7D, za katero je kot prvi v Sloveniji redno poročal o tako imenovani črni kroniki. Ko je leta 1994 Borba prenehala z delovanjem, je novinarsko pot nadaljeval kot svobodni novinar in se intenzivneje posvetil vrhunski likovni umetnosti, nad katero se je navdušil že v gimnaziji, ko je večino svojega prostega časa preživel v ateljeju slikarja Ismeta Mujezinovića.</p>
-        
-        <p>Že kot novinar Borbe je skrbel za izmenjavo med slovenskimi, bosansko-hercegovskimi, hrvaškimi in srbskimi umetniki ter v galeriji v Beogradu organiziral številne razstave in predstavitve najrazličnejših umetnikov, tudi slovenskih. Po preselitvi v Maribor je leta 1988 skupaj z ženo Nevenko v kleti Strossmayerjeve 34 ustanovil prvo zasebno razstavno-prodajno galerijo v Mariboru in eno prvih v takratni Jugoslaviji. Ker je z leti razstavni prostor postal pretesen, je družinsko galerijsko dejavnost preselil v prostore na Židovski 12 v Mariboru in tam leta 1993 odprl Galerijo Festić. Slednjo so po njegovi smrti preimenovali v Mednarodni kulturni center Smail Festić.</p>
-        
-        <p>Vse od svojega prihoda v Slovenijo si je na najrazličnejše načine prizadeval za sodelovanje med Slovenijo in Bosno in Hercegovino in od leta 2011 dalje opravljal funkcijo častnega konzula Bosne in Hercegovine v Republiki Sloveniji.</p>
-        
-        <hr>
-        
-        <p>
-            <a href="index.html" style="color: #666; text-decoration: none;">&larr; Nazaj na prvo stran</a>
-        </p>
+        <p>Smail Festić je slovenski likovni ustvarjalec, prepoznaven po svojem unikatnem umetniškem izrazu. Njegova dela odražajo globoko ekspresijo in premišljeno barvno estetiko.</p>
+        <p>Skozi leta ustvarjanja je razvil prepoznaven slog, ki obiskovalca popelje v svet barvitih likovnih motivov in interpretacij.</p>
     </div>
+
+    <!-- Spodnji pas -->
+    <footer class="footer-band">
+        <div class="footer">
+            <span>Kontakt:</span>
+            <a href="https://www.facebook.com" target="_blank">Facebook</a>
+        </div>
+    </footer>
 
 </body>
 </html>
