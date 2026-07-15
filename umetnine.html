@@ -18,7 +18,7 @@
             color: #333;
             min-height: 100vh;
             
-            /* Slika se predvaja neposredno v ozadju cele strani v polnih, čistih barvah (brez filtra čez celo sliko) */
+            /* Slika se predvaja neposredno v ozadju cele strani v polnih, čistih barvah */
             background-image: url('slika1.jpg');
             background-size: cover;
             background-position: center;
@@ -33,18 +33,24 @@
             justify-content: space-between;
         }
 
-        /* Klasičen in stabilen meni (enak kot na index.html in o-meni.html) */
+        /* Zgornji meni - oblikovan kot elegantna zamegljena steklena plošča */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             max-width: 800px;
             width: 90%;
-            margin: 0 auto;
-            padding: 20px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            margin: 20px auto 0 auto;
+            padding: 15px 25px;
+            background-color: rgba(255, 255, 255, 0.75); /* Nežno belo prosojno ozadje */
+            backdrop-filter: blur(15px); /* Mehka zameglitev slike v ozadju pod menijem */
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 30px; /* Zaobljeni robovi, ki se ujemajo s spodnjimi kontrolniki */
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
             position: relative;
             z-index: 10;
+            box-sizing: border-box;
         }
 
         .navbar-brand {
@@ -56,9 +62,10 @@
 
         .navbar-links a {
             text-decoration: none;
-            color: #555;
+            color: #444;
             margin-left: 20px;
             font-size: 0.95em;
+            font-weight: 500;
         }
 
         .navbar-links a:hover {
@@ -82,16 +89,15 @@
             margin-bottom: 5px;
             font-weight: normal;
             color: #111;
-            /* Nežna bela senca okoli črk za popolno čitljivost na vseh slikah */
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 5px rgba(255, 255, 255, 0.8);
+            /* Bela senca, ki poskrbi za berljivost na poljubnem ozadju */
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.95), 0 0 6px rgba(255, 255, 255, 0.8);
         }
 
         .subtitle {
-            color: #333;
+            color: #222;
             margin-bottom: 40px;
             font-size: 1.05em;
-            /* Nežna bela senca za podnapis */
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 5px rgba(255, 255, 255, 0.8);
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.95), 0 0 6px rgba(255, 255, 255, 0.8);
         }
 
         /* Nadzorna plošča za listanje slik (lebdeča prosojna vrstica) */
@@ -100,7 +106,7 @@
             justify-content: center;
             align-items: center;
             gap: 20px;
-            background-color: rgba(255, 255, 255, 0.9); /* Polprosojno belo ozadje */
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 12px 25px;
             border-radius: 30px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
@@ -130,18 +136,24 @@
             min-width: 60px;
         }
 
-        /* Noga strani (Popolnoma usklajena z index.html in o-meni.html) */
+        /* Spodnja noga - prav tako oblikovana kot elegantna zamegljena steklena plošča */
         .footer {
             max-width: 800px;
             width: 90%;
-            margin: 0 auto;
-            padding: 20px 0 40px 0;
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            margin: 0 auto 25px auto;
+            padding: 15px 25px;
+            background-color: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: relative;
             z-index: 10;
+            box-sizing: border-box;
         }
 
         .footer span {
@@ -207,7 +219,7 @@
         let currentIndex = 0;
         const counterElement = document.getElementById("counter");
 
-        // Funkcija za posodobitev celozaslonskega ozadja (zdaj popolnoma brez prosojnih belih filtrov čez sliko!)
+        // Funkcija za posodobitev celozaslonskega ozadja
         function updateBackground() {
             document.body.style.backgroundImage = `url('${images[currentIndex]}')`;
             counterElement.textContent = `${currentIndex + 1} / ${images.length}`;
