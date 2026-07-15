@@ -3,35 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smail Festic</title>
+    <title>Smail Festić - Domača stran</title>
     <style>
         body {
             font-family: 'Georgia', serif;
-            line-height: 1.6;
+            line-height: 1.8;
             margin: 0;
             padding: 0;
-            background-color: #fbfbfb;
             color: #333;
+            background-color: #fbfbfb;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-       /* Zgornji meni - brez polnega ozadja, samo z zaobljeno črto okoli */
+        /* Zgornji meni - popolnoma usklajen po dimenzijah in zaobljenosti */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 800px;
-            width: 90%;
-            margin: 20px auto 0 auto;
-            padding: 12px 25px;
-            background-color: transparent; /* Popolnoma prosojno */
-            border: 1px solid rgba(0, 0, 0, 0.1); /* Nežna siva črta okoli in okoli */
-            border-radius: 30px; /* Enaka zaobljenost kot v galeriji */
+            max-width: 400px; /* Enaka širina kot spodnji gumbi */
+            width: 85%;       /* Enak odzivni odstotek */
+            margin: 40px auto 0 auto; /* Identičen odmik od vrha kot v galeriji */
+            padding: 15px 25px;       /* Identična višina */
+            background-color: transparent; 
+            border: 1px solid rgba(0, 0, 0, 0.1); 
+            border-radius: 40px;      /* Enaka zaobljenost */
             box-sizing: border-box;
         }
 
         .navbar-brand {
             font-weight: bold;
-            font-size: 1.2em;
+            font-size: 1.1em;
             text-decoration: none;
             color: #111;
         }
@@ -39,96 +43,52 @@
         .navbar-links a {
             text-decoration: none;
             color: #555;
-            margin-left: 20px;
-            font-size: 0.95em;
-            font-weight: 500;
+            margin-left: 15px;
+            font-size: 0.9em;
+            font-weight: bold;
         }
 
         .navbar-links a:hover {
             color: #000;
         }
 
-        /* Spodnji kontaktni okvir - v isti širini in stilu kot zgornji meni */
-        .footer-panel {
-            max-width: 800px;
-            width: 90%;
-            margin: 40px auto 20px auto;
-            padding: 15px 25px;
-            border: 1px solid rgba(0, 0, 0, 0.1); /* Enaka obroba */
-            border-radius: 30px; /* Enaka zaobljenost */
-            box-sizing: border-box;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer-panel a {
-            color: #111;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .footer-panel a:hover {
-            text-decoration: underline;
-        }
+        /* Osrednji del strani */
         .container {
             max-width: 800px;
+            width: 90%;
             margin: 40px auto;
             padding: 0 20px;
+            text-align: center;
+            box-sizing: border-box;
+            flex-grow: 1; /* Poskrbi, da se vsebina raztegne in potisne noge na dno */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         h1 {
             font-size: 2.5em;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             font-weight: normal;
         }
 
         .subtitle {
             color: #666;
+            font-size: 1.1em;
             margin-bottom: 30px;
         }
 
-        hr {
-            border: 0;
-            border-top: 1px solid #eee;
-            margin: 40px 0 20px 0;
+        .lead-text {
+            font-size: 1.05em;
+            color: #444;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        a:focus {
-            outline: 2px solid #000;
-            outline-offset: 3px;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Meni (Domov je tukaj označen kot aktiven) -->
-   <nav class="navbar">
-        <a class="navbar-brand" href="index.html">Smail Festić</a>
-        <div class="navbar-links">
-            <a href="index.html" style="color: #000; font-weight: bold;">Domov</a>
-            <a href="o-meni.html">O meni</a>
-            <a href="video.html">Video</a>
-            <a href="umetnine.html">Umetnine</a>
-        </div>
-    </nav>
-
-    <!-- Vsebina strani -->
-    <div class="container">
-   <img src="Smail.jpg" alt="Smail Festić" style="max-width: 250px; border-radius: 4px; margin-bottom: 20px;">
-        
-        <h1>Smail Festić</h1>
-        <p class="subtitle">Osebna spletna stran</p>
-        
-        <p>Pozdravljeni! To je moja prva spletna stran, ustvarjena s pomočjo GitHub Pages.</p>
-        
-        <hr>
-        
-        <p>
-            <strong>Kontakt:</strong> 
-            <a href="https://www.facebook.com/mkcsmailfestic/?locale=sl_SI" target="_blank" style="color: #0056b3; text-decoration: underline; font-weight: bold;">Facebook</a>
-        </p>
-    </div>
-
-</body>
-</html>
+        /* Spodnja kontaktna kapsula - popolnoma usklajena po dimenzijah */
+        .footer-panel {
+            max-width: 400px; /* Enaka širina */
+            width: 85%;       /* Enaka širina */
+            margin: 40px auto 40px auto; /* Identični odmiki */
+            padding: 15px 25px;          /* Enaka višina */
+            border: 1px solid rgba(0, 0, 0, 0.1);
