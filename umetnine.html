@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smail Festić - Umetnine</title>
     <style>
+        /* Vedno omogočimo drsnik, da meni ne skače levo/desno med zavihki */
+        html {
+            overflow-y: scroll;
+        }
+
         body {
             font-family: 'Georgia', serif;
             line-height: 1.8;
@@ -24,7 +29,7 @@
             justify-content: space-between;
         }
 
-        /* Temnejši nežen filter čez celozaslonsko sliko, da so gumbi in meni lažje berljivi */
+        /* Polprosojen svetel sloj čez ozadje, ki zamegli sliko pod njim in poskrbi za čitljivost besedila */
         body::before {
             content: "";
             position: absolute;
@@ -38,7 +43,7 @@
             z-index: -1; /* Plast ostane pod vsebino */
         }
 
-        /* Klasičen meni (identičen kot na index.html in o-meni.html) */
+        /* Klasičen meni (popolnoma enak kot na index.html in o-meni.html) */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -231,7 +236,6 @@
 </head>
 <body>
 
-    <!-- Meni (Identifikacija z o-meni in domov) -->
     <nav class="navbar">
         <a class="navbar-brand" href="index.html">Smail Festić</a>
         <div class="navbar-links">
@@ -242,12 +246,10 @@
         </div>
     </nav>
 
-    <!-- Vsebina -->
     <div class="container">
         <h1>Umetnine</h1>
         <p class="subtitle">Pregled del in utrinkov iz galerije</p>
         
-        <!-- Galerija -->
         <div class="book-gallery" id="gallery">
             <div class="hover-nav left" onclick="prevImage()">
                 <span class="nav-arrow">&#10094;</span>
@@ -260,7 +262,6 @@
             </div>
         </div>
 
-        <!-- Kontrolniki spodaj -->
         <div class="gallery-controls">
             <button class="control-btn" onclick="prevImage()">Prejšnja</button>
             <span class="counter" id="counter">1 / 5</span>
@@ -268,13 +269,11 @@
         </div>
     </div>
 
-    <!-- Noga (Kontakt & Facebook) -->
     <footer class="footer">
         <span>Kontakt:</span>
         <a href="https://www.facebook.com" target="_blank">Facebook</a>
     </footer>
 
-    <!-- JavaScript za gladko prelivanje slik in spremembo ozadja -->
     <script>
         const images = [
             "slika1.jpg",
@@ -288,7 +287,7 @@
         const imgElement = document.getElementById("book-img");
         const counterElement = document.getElementById("counter");
 
-        // Nastavi začetno ozadje in sliko
+        // Funkcija, ki nastavi in posodobi ozadje celotnega zaslona
         function updateBackground() {
             document.body.style.backgroundImage = `url('${images[currentIndex]}')`;
             counterElement.textContent = `${currentIndex + 1} / ${images.length}`;
@@ -306,7 +305,7 @@
 
             setTimeout(() => {
                 imgElement.src = images[currentIndex];
-                updateBackground();
+                updateBackground(); // Posodobi ozadje zaslona na novo sliko
                 imgElement.style.transform = 'translateX(0)';
                 imgElement.style.opacity = '1';
             }, 250);
@@ -331,7 +330,7 @@
             }
         });
 
-        // Zaženemo takoj ob naložitvi
+        // Zaženemo začetno ozadje takoj ko se stran naloži
         window.onload = updateBackground;
     </script>
 
