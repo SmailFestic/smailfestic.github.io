@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smail Festić - Umetnine</title>
     <style>
-        /* Vedno omogočimo drsnik, da meni ne skače levo/desno med zavihki */
+        /* Popolna stabilizacija drsnika, da meni ne skače levo/desno */
         html {
             overflow-y: scroll;
         }
@@ -18,7 +18,7 @@
             color: #333;
             position: relative;
             min-height: 100vh;
-            /* Slika čez celoten zaslon v ozadju - čista in ostra */
+            /* Slika v ozadju - čista, ostra in čez celoten zaslon */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -29,7 +29,8 @@
             justify-content: space-between;
         }
 
-        /* Polprosojen svetel sloj čez ozadje, ki zamegli sliko pod njim in poskrbi za čitljivost besedila */
+        /* Zelo nežen svetel filter čez ozadje (samo 15% prosojnost brez zameglitve), */
+        /* da besedilo in meni ostaneta lepo čitljiva, slike v ozadju pa popolnoma ostre */
         body::before {
             content: "";
             position: absolute;
@@ -37,13 +38,11 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(251, 251, 251, 0.88); /* 88% bela prosojnost */
-            backdrop-filter: blur(20px); /* Močna zameglitev za sanjav umetniški efekt */
-            -webkit-backdrop-filter: blur(20px);
-            z-index: -1; /* Plast ostane pod vsebino */
+            background-color: rgba(251, 251, 251, 0.15); 
+            z-index: -1;
         }
 
-        /* Klasičen meni (popolnoma enak kot na index.html in o-meni.html) */
+        /* Klasičen in stabilen meni (enak kot na index.html in o-meni.html) */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -52,7 +51,7 @@
             width: 90%;
             margin: 0 auto;
             padding: 20px 0;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             position: relative;
             z-index: 10;
         }
@@ -79,260 +78,41 @@
         .container {
             max-width: 800px;
             width: 90%;
-            margin: 50px auto;
-            padding: 0 20px;
+            margin: auto auto;
+            padding: 40px 20px;
             text-align: center;
             position: relative;
-            z-index: 1; /* Vsebina lebdi nad zamegljenim ozadjem */
+            z-index: 1;
             box-sizing: border-box;
-            flex-grow: 1;
         }
 
         h1 {
             font-size: 2.2em;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             font-weight: normal;
             color: #111;
+            text-shadow: 0 1px 4px rgba(255, 255, 255, 0.8); /* Boljša berljivost na slikah */
         }
 
         .subtitle {
-            color: #555;
-            margin-bottom: 30px;
+            color: #444;
+            margin-bottom: 40px;
+            font-size: 1.05em;
+            text-shadow: 0 1px 4px rgba(255, 255, 255, 0.8);
         }
 
-        /* --- STIL ZA INTERAKTIVNO GALERIJO --- */
-        .book-gallery {
-            position: relative;
-            max-width: 500px; /* Malenkost ožje, da se lepše vidi ozadje okoli */
-            margin: 30px auto;
-            aspect-ratio: 4 / 5; 
-            border-radius: 16px;
-            box-shadow: 0 20px 45px rgba(0,0,0,0.2);
-            background-color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            user-select: none;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-        }
-
-        .book-image {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
-            padding: 10px; /* Da slika ne seže čisto do robov okvirja */
-            box-sizing: border-box;
-        }
-
-        /* Lebdeče navigacijske cone levo/desno ob prehodu z miško */
-        .hover-nav {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 25%;
-            z-index: 10;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .hover-nav.left {
-            left: 0;
-            background: linear-gradient(to right, rgba(0,0,0,0.05), transparent);
-        }
-
-        .hover-nav.right {
-            right: 0;
-            background: linear-gradient(to left, rgba(0,0,0,0.05), transparent);
-        }
-
-        .book-gallery:hover .hover-nav {
-            opacity: 1;
-        }
-
-        .nav-arrow {
-            color: #333;
-            font-size: 2em;
-            font-weight: bold;
-            background: rgba(255, 255, 255, 0.8);
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        /* Kontrolniki spodaj */
+        /* Kontrolniki spodaj - lebdeča prosojna vrstica za listanje slik */
         .gallery-controls {
-            display: flex;
+            display: inline-flex;
             justify-content: center;
             align-items: center;
             gap: 20px;
-            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* Polprosojno belo ozadje */
+            padding: 12px 25px;
+            border-radius: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
         .control-btn {
-            background-color: #222;
-            color: white;
-            border: none;
-            padding: 10px 22px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            cursor: pointer;
-            transition: background-color 0.2s, transform 0.1s;
-            font-family: inherit;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .control-btn:hover {
-            background-color: #000;
-        }
-
-        .counter {
-            font-size: 0.95em;
-            color: #333;
-            font-weight: bold;
-            min-width: 60px;
-        }
-
-        /* Noga strani (Popolnoma usklajena z index.html in o-meni.html) */
-        .footer {
-            max-width: 800px;
-            width: 90%;
-            margin: 0 auto;
-            padding: 20px 0 40px 0;
-            border-top: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            z-index: 10;
-        }
-
-        .footer span {
-            color: #111;
-            font-size: 0.95em;
-            font-weight: bold;
-        }
-
-        .footer a {
-            color: #1877F2; /* Uradna Facebook modra */
-            text-decoration: underline; /* Podčrtano */
-            font-weight: bold;
-            font-size: 0.95em;
-        }
-
-        .footer a:hover {
-            color: #145dbf;
-        }
-    </style>
-</head>
-<body>
-
-    <nav class="navbar">
-        <a class="navbar-brand" href="index.html">Smail Festić</a>
-        <div class="navbar-links">
-            <a href="index.html">Domov</a>
-            <a href="o-meni.html">O meni</a>
-            <a href="video.html">Video</a>
-            <a href="umetnine.html" style="color: #000; font-weight: bold;">Umetnine</a>
-        </div>
-    </nav>
-
-    <div class="container">
-        <h1>Umetnine</h1>
-        <p class="subtitle">Pregled del in utrinkov iz galerije</p>
-        
-        <div class="book-gallery" id="gallery">
-            <div class="hover-nav left" onclick="prevImage()">
-                <span class="nav-arrow">&#10094;</span>
-            </div>
-
-            <img src="slika1.jpg" id="book-img" class="book-image" alt="Umetnina Smail Festić">
-
-            <div class="hover-nav right" onclick="nextImage()">
-                <span class="nav-arrow">&#10095;</span>
-            </div>
-        </div>
-
-        <div class="gallery-controls">
-            <button class="control-btn" onclick="prevImage()">Prejšnja</button>
-            <span class="counter" id="counter">1 / 5</span>
-            <button class="control-btn" onclick="nextImage()">Naslednja</button>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <span>Kontakt:</span>
-        <a href="https://www.facebook.com" target="_blank">Facebook</a>
-    </footer>
-
-    <script>
-        const images = [
-            "slika1.jpg",
-            "slika2.jpg",
-            "slika3.jpg",
-            "slika4.jpg",
-            "slika5.jpg"
-        ];
-
-        let currentIndex = 0;
-        const imgElement = document.getElementById("book-img");
-        const counterElement = document.getElementById("counter");
-
-        // Funkcija, ki nastavi in posodobi ozadje celotnega zaslona
-        function updateBackground() {
-            document.body.style.backgroundImage = `url('${images[currentIndex]}')`;
-            counterElement.textContent = `${currentIndex + 1} / ${images.length}`;
-        }
-
-        function updateImage(direction) {
-            // Efekt drsenja za glavno sliko ob menjavi
-            if (direction === 'next') {
-                imgElement.style.transform = 'translateX(-20px)';
-                imgElement.style.opacity = '0';
-            } else {
-                imgElement.style.transform = 'translateX(20px)';
-                imgElement.style.opacity = '0';
-            }
-
-            setTimeout(() => {
-                imgElement.src = images[currentIndex];
-                updateBackground(); // Posodobi ozadje zaslona na novo sliko
-                imgElement.style.transform = 'translateX(0)';
-                imgElement.style.opacity = '1';
-            }, 250);
-        }
-
-        function nextImage() {
-            currentIndex = (currentIndex + 1) % images.length;
-            updateImage('next');
-        }
-
-        function prevImage() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            updateImage('prev');
-        }
-
-        // Listanje s puščicami na tipkovnici
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowRight') {
-                nextImage();
-            } else if (e.key === 'ArrowLeft') {
-                prevImage();
-            }
-        });
-
-        // Zaženemo začetno ozadje takoj ko se stran naloži
-        window.onload = updateBackground;
-    </script>
-
-</body>
-</html>
+            background-color: #222
