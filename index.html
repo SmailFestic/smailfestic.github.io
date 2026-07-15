@@ -21,24 +21,24 @@
             flex-direction: column;
         }
 
-        /* Zgornji meni - lebdeča bela kapsula z nežno senco */
+        /* Zgornji meni - širina 800px (točno tako kot na umetnine.html) */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 450px;
+            max-width: 800px;
             width: 90%;
-            margin: 30px auto;
-            padding: 12px 24px;
+            margin: 40px auto 0 auto; /* Odmik 40px od vrha */
+            padding: 15px 25px;
             background-color: rgba(255, 255, 255, 0.9);
             border: 1px solid rgba(0, 0, 0, 0.06);
-            border-radius: 40px;
+            border-radius: 30px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
         }
 
         .navbar-brand {
             font-weight: bold;
-            font-size: 1.05em;
+            font-size: 1.1em;
             text-decoration: none;
             color: #111;
         }
@@ -46,8 +46,8 @@
         .navbar-links a {
             text-decoration: none;
             color: #555;
-            margin-left: 15px;
-            font-size: 0.85em;
+            margin-left: 20px;
+            font-size: 0.9em;
             font-weight: bold;
             transition: color 0.2s ease;
         }
@@ -60,7 +60,7 @@
         .container {
             max-width: 600px;
             width: 90%;
-            margin: auto; /* Samodejno centriranje po vertikali */
+            margin: auto; 
             padding: 20px;
             text-align: center;
         }
@@ -97,12 +97,12 @@
             max-width: 500px;
         }
 
-        /* Spodnji kontakt - lebdeča bela kapsula */
+        /* Spodnji kontakt - širina 400px (točno tako kot kontrolna plošča v umetnine.html) */
         .footer-panel {
-            max-width: 450px;
-            width: 90%;
-            margin: 30px auto;
-            padding: 12px 24px;
+            max-width: 400px;
+            width: 85%;
+            margin: 0 auto 40px auto; /* Odmik 40px od spodnjega roba */
+            padding: 15px 25px;
             background-color: rgba(255, 255, 255, 0.9);
             border: 1px solid rgba(0, 0, 0, 0.06);
             border-radius: 40px;
@@ -114,7 +114,7 @@
 
         .footer-panel span {
             color: #555;
-            font-size: 0.85em;
+            font-size: 0.9em;
             font-weight: bold;
         }
 
@@ -122,7 +122,7 @@
             color: #111;
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.85em;
+            font-size: 0.9em;
             border-bottom: 1px solid #111;
         }
 
@@ -134,6 +134,7 @@
 </head>
 <body>
 
+    <!-- Zgornji meni -->
     <nav class="navbar">
         <a class="navbar-brand" href="index.html">Smail Festić</a>
         <div class="navbar-links">
@@ -144,6 +145,7 @@
         </div>
     </nav>
 
+    <!-- Glavna predstavitev s sliko na sredini -->
     <div class="container">
         <img class="profile-img" src="Smail.jpg" alt="Smail Festić">
         <h1>Smail Festić</h1>
@@ -153,6 +155,7 @@
         </p>
     </div>
 
+    <!-- Spodnja zaobljena kapsula za Kontakt -->
     <div class="footer-panel">
         <span>Kontakt:</span>
         <a href="https://www.facebook.com" target="_blank">Facebook</a>
