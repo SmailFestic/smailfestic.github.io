@@ -10,8 +10,29 @@
             line-height: 1.8;
             margin: 0;
             padding: 0;
-            background-color: #fbfbfb;
             color: #333;
+            position: relative;
+            min-height: 100vh;
+            /* Gladka tranzicija za spremembo ozadja */
+            transition: background-image 0.8s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* Polprosojen svetel sloj čez ozadje, ki zamegli sliko pod njim in poskrbi za čitljivost besedila */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(251, 251, 251, 0.88); /* 88% bela prosojnost */
+            backdrop-filter: blur(20px); /* Močna zameglitev (blur) za sanjav umetniški efekt */
+            -webkit-backdrop-filter: blur(20px);
+            z-index: -1; /* Plast ostane pod vsebino */
         }
 
         .navbar {
@@ -21,7 +42,7 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .navbar-brand {
@@ -47,6 +68,8 @@
             margin: 40px auto;
             padding: 0 20px;
             text-align: center;
+            position: relative;
+            z-index: 1; /* Vsebina lebdi nad zamegljenim ozadjem */
         }
 
         h1 {
@@ -56,42 +79,41 @@
         }
 
         .subtitle {
-            color: #666;
+            color: #555;
             margin-bottom: 30px;
         }
 
-        /* --- STIL ZA INTERAKTIVNO GALERIJO (KNJIGO) --- */
+        /* --- STIL ZA INTERAKTIVNO GALERIJO --- */
         .book-gallery {
             position: relative;
-            max-width: 600px;
+            max-width: 500px; /* Malenkost ožje, da se lepše vidi ozadje okoli */
             margin: 30px auto;
-            /* Razmerje slike prilagodi glede na potrebe, tu je nastavljeno na lepo pokončno/kvadratno */
             aspect-ratio: 4 / 5; 
-            border-radius: 12px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            background-color: #f5f5f5;
+            border-radius: 16px;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.2);
+            background-color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
             user-select: none;
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
-        /* Glavna aktivna slika na sredini */
         .book-image {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Ohrani originalno razmerje slike znotraj okvirja */
+            object-fit: contain;
             transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
-            background-color: #eaeaea;
+            padding: 10px; /* Da slika ne seže čisto do robov okvirja, kot v pravi galeriji */
+            box-sizing: border-box;
         }
 
-        /* Nevidni coni na levi in desni za "listanje" z miško */
         .hover-nav {
             position: absolute;
             top: 0;
             bottom: 0;
-            width: 35%;
+            width: 25%;
             z-index: 10;
             cursor: pointer;
             display: flex;
@@ -99,28 +121,36 @@
             justify-content: center;
             opacity: 0;
             transition: opacity 0.3s ease;
-            background: linear-gradient(to right, rgba(0,0,0,0.1), transparent);
+        }
+
+        .hover-nav.left {
+            left: 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.05), transparent);
         }
 
         .hover-nav.right {
             right: 0;
-            background: linear-gradient(to left, rgba(0,0,0,0.1), transparent);
+            background: linear-gradient(to left, rgba(0,0,0,0.05), transparent);
         }
 
-        /* Ko greš z miško čez cono, se prikažejo puščice */
         .book-gallery:hover .hover-nav {
             opacity: 1;
         }
 
-        /* Stil puščic */
         .nav-arrow {
-            color: white;
-            font-size: 2.5em;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            color: #333;
+            font-size: 2em;
             font-weight: bold;
+            background: rgba(255, 255, 255, 0.8);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        /* Spodnji gumbi za krmiljenje (zelo uporabni za telefone) */
         .gallery-controls {
             display: flex;
             justify-content: center;
@@ -133,38 +163,34 @@
             background-color: #333;
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
+            padding: 10px 24px;
+            border-radius: 24px;
             font-size: 0.9em;
             cursor: pointer;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s, transform 0.1s;
             font-family: inherit;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .control-btn:hover {
             background-color: #000;
+            transform: translateY(-1px);
+        }
+
+        .control-btn:active {
+            transform: translateY(1px);
         }
 
         .counter {
             font-size: 1em;
-            color: #666;
-            min-width: 50px;
-        }
-
-        /* Prehodni učinek za listanje (knjiga) */
-        .slide-left {
-            transform: translateX(-100%);
-            opacity: 0;
-        }
-
-        .slide-right {
-            transform: translateX(100%);
-            opacity: 0;
+            color: #444;
+            font-weight: bold;
+            min-width: 60px;
         }
 
         hr {
             border: 0;
-            border-top: 1px solid #eee;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
             margin: 40px 0 20px 0;
         }
 
@@ -190,25 +216,22 @@
     <!-- Vsebina -->
     <div class="container">
         <h1>Umetnine</h1>
-        <p class="subtitle">Pregled del in utrinkov iz galerije (povleci miško levo/desno za listanje)</p>
+        <p class="subtitle">Pregled del in utrinkov iz galerije</p>
         
-        <!-- Galerija v stilu knjige -->
+        <!-- Galerija -->
         <div class="book-gallery" id="gallery">
-            <!-- Nevidna cona levo za prejšnjo sliko -->
             <div class="hover-nav left" onclick="prevImage()">
                 <span class="nav-arrow">&#10094;</span>
             </div>
 
-            <!-- Glavna slika -->
             <img src="slika1.jpg" id="book-img" class="book-image" alt="Umetnina Smail Festić">
 
-            <!-- Nevidna cona desno za naslednjo sliko -->
             <div class="hover-nav right" onclick="nextImage()">
                 <span class="nav-arrow">&#10095;</span>
             </div>
         </div>
 
-        <!-- Kontrolniki pod sliko (za lažjo uporabo) -->
+        <!-- Kontrolniki -->
         <div class="gallery-controls">
             <button class="control-btn" onclick="prevImage()">Prejšnja</button>
             <span class="counter" id="counter">1 / 5</span>
@@ -222,9 +245,8 @@
         </p>
     </div>
 
-    <!-- JavaScript, ki omogoča gladko menjavanje in listanje -->
+    <!-- JavaScript za gladko prelivanje slik in spremembo ozadja -->
     <script>
-        // Seznam tvojih slik, ki si jih pravkar naložil
         const images = [
             "slika1.jpg",
             "slika2.jpg",
@@ -237,8 +259,16 @@
         const imgElement = document.getElementById("book-img");
         const counterElement = document.getElementById("counter");
 
+        // Funkcija, ki nastavi začetno ozadje takoj ob naložitvi strani
+        function setInitialBackground() {
+            document.body.style.backgroundImage = `url('${images[0]}')`;
+        }
+
         function updateImage(direction) {
-            // Dodamo efekt drsenja
+            // Gladka sprememba ozadja cele strani
+            document.body.style.backgroundImage = `url('${images[currentIndex]}')`;
+
+            // Efekt drsenja za glavno sliko
             if (direction === 'next') {
                 imgElement.style.transform = 'translateX(-20px)';
                 imgElement.style.opacity = '0';
@@ -248,11 +278,9 @@
             }
 
             setTimeout(() => {
-                // Posodobimo vir slike in števec
                 imgElement.src = images[currentIndex];
                 counterElement.textContent = `${currentIndex + 1} / ${images.length}`;
                 
-                // Vrnemo sliko v prvotni položaj z gladkim prehodom
                 imgElement.style.transform = 'translateX(0)';
                 imgElement.style.opacity = '1';
             }, 250);
@@ -268,7 +296,6 @@
             updateImage('prev');
         }
 
-        // Omogoči listanje tudi s puščicami na tipkovnici (levo in desno)
         document.addEventListener('keydown', function(e) {
             if (e.key === 'ArrowRight') {
                 nextImage();
@@ -276,6 +303,9 @@
                 prevImage();
             }
         });
+
+        // Zaženemo začetno ozadje
+        window.onload = setInitialBackground;
     </script>
 
 </body>
