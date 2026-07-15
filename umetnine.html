@@ -18,9 +18,8 @@
             color: #333;
             min-height: 100vh;
             
-            /* Slika se predvaja neposredno v ozadju cele strani. */
-            /* Dodan je nežen svetel filter (85% bela), da so črke in meni odlično čitljivi, slika pa ostane čista. */
-            background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('slika1.jpg');
+            /* Slika se predvaja neposredno v ozadju cele strani v polnih, čistih barvah (brez filtra čez celo sliko) */
+            background-image: url('slika1.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -83,12 +82,16 @@
             margin-bottom: 5px;
             font-weight: normal;
             color: #111;
+            /* Nežna bela senca okoli črk za popolno čitljivost na vseh slikah */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 5px rgba(255, 255, 255, 0.8);
         }
 
         .subtitle {
-            color: #444;
+            color: #333;
             margin-bottom: 40px;
             font-size: 1.05em;
+            /* Nežna bela senca za podnapis */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 5px rgba(255, 255, 255, 0.8);
         }
 
         /* Nadzorna plošča za listanje slik (lebdeča prosojna vrstica) */
@@ -204,9 +207,9 @@
         let currentIndex = 0;
         const counterElement = document.getElementById("counter");
 
-        // Funkcija za posodobitev celozaslonskega ozadja s svetlim filtrom vred
+        // Funkcija za posodobitev celozaslonskega ozadja (zdaj popolnoma brez prosojnih belih filtrov čez sliko!)
         function updateBackground() {
-            document.body.style.backgroundImage = `linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('${images[currentIndex]}')`;
+            document.body.style.backgroundImage = `url('${images[currentIndex]}')`;
             counterElement.textContent = `${currentIndex + 1} / ${images.length}`;
         }
 
