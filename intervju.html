@@ -6,17 +6,16 @@
     <meta name="description" content="Preberite intervju z dr. Mejro Festić o poslanstvu Galerije Smaila Festića.">
     <title>Smail Festić - Intervju</title>
     <style>
-        /* Preprečimo drsenje cele spletne strani */
         html, body {
-            height: 100%;
-            overflow: hidden;
+            overflow: hidden !important;
+            height: 100% !important;
+            margin: 0;
+            padding: 0;
         }
 
         body {
             font-family: 'Georgia', serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
+            line-height: 1.8;
             color: #333;
             background-color: #fbfbfb;
             display: flex;
@@ -24,27 +23,24 @@
             justify-content: space-between;
         }
 
-        /* Zgornji pas z zameglitvijo */
         .header-band {
             width: 100%;
-            background-color: rgba(251, 251, 251, 0.9);
+            background-color: rgba(251, 251, 251, 0.8);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             position: relative;
             z-index: 10;
-            flex-shrink: 0;
         }
 
-        /* Meni */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 900px;
+            max-width: 800px;
             width: 90%;
             margin: 0 auto;
-            padding: 15px 0;
+            padding: 20px 0;
             box-sizing: border-box;
         }
 
@@ -66,12 +62,11 @@
             color: #000;
         }
 
-        /* Osrednji del strani */
         .container {
-            max-width: 900px;
+            max-width: 800px;
             width: 90%;
-            margin: 15px auto;
-            padding: 0 10px;
+            margin: auto auto;
+            padding: 10px 20px;
             text-align: center;
             box-sizing: border-box;
             flex-grow: 1;
@@ -81,14 +76,13 @@
         }
 
         h1 {
-            font-size: 1.8em;
+            font-size: 2.2em;
             margin-bottom: 15px;
             font-weight: normal;
             color: #111;
             flex-shrink: 0;
         }
 
-        /* Okvir za prikaz PDF-ja z lastnim drsnikom */
         .pdf-wrapper {
             width: 100%;
             flex-grow: 1;
@@ -106,24 +100,21 @@
             border: none;
         }
 
-        /* Spodnji pas z zameglitvijo */
         .footer-band {
             width: 100%;
-            background-color: rgba(251, 251, 251, 0.9);
+            background-color: rgba(251, 251, 251, 0.8);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-top: 1px solid rgba(0, 0, 0, 0.08);
             position: relative;
             z-index: 10;
-            flex-shrink: 0;
         }
 
-        /* Noga */
         .footer {
-            max-width: 900px;
+            max-width: 800px;
             width: 90%;
             margin: 0 auto;
-            padding: 12px 0;
+            padding: 20px 0 40px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -132,7 +123,7 @@
 
         .footer span {
             color: #111;
-            font-size: 0.9em;
+            font-size: 0.95em;
             font-weight: bold;
         }
 
@@ -140,7 +131,7 @@
             color: #1877F2;
             text-decoration: underline;
             font-weight: bold;
-            font-size: 0.9em;
+            font-size: 0.95em;
         }
 
         .footer a:hover {
@@ -150,21 +141,19 @@
 </head>
 <body>
 
-    <!-- Zgornji pas -->
     <header class="header-band">
         <nav class="navbar">
             <a class="navbar-brand" href="index.html">Smail Festić</a>
-           <div class="navbar-links">
-    <a href="index.html">O meni</a>
-    <a href="video.html">Video</a>
-    <a href="umetnine.html">Predstavitev</a>
-    <a href="intervju.html">Intervju</a>
-    <a href="muzej.html">Muzej Smail Festić</a>
-        </div>
+            <div class="navbar-links">
+                <a href="index.html">O meni</a>
+                <a href="video.html">Video</a>
+                <a href="umetnine.html">Predstavitev</a>
+                <a href="intervju.html" style="color: #000; font-weight: bold;">Intervju</a>
+                <a href="muzej.html">Muzej Smail Festić</a>
+            </div>
         </nav>
     </header>
 
-    <!-- Vsebina -->
     <div class="container">
         <h1>Intervju in prispevki</h1>
         <div class="pdf-wrapper">
@@ -172,7 +161,6 @@
         </div>
     </div>
 
-    <!-- Spodnji pas -->
     <footer class="footer-band">
         <div class="footer">
             <span>Kontakt:</span>
