@@ -6,7 +6,7 @@
     <meta name="description" content="Oglejte si predstavitveni video o ustvarjanju in delih umetnika Smaila Festića.">
     <title>Smail Festić - Video</title>
     <style>
-        /* Skrijemo drsnik na tej strani */
+        /* Poenotena nastavitev brez drsnika */
         html, body {
             overflow: hidden !important;
             height: 100% !important;
@@ -18,14 +18,13 @@
             font-family: 'Georgia', serif;
             line-height: 1.8;
             color: #333;
-            min-height: 100vh;
             background-color: #fbfbfb;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        /* Zgornji pas z zameglitvijo */
+        /* Zgornji pas */
         .header-band {
             width: 100%;
             background-color: rgba(251, 251, 251, 0.8);
@@ -36,7 +35,7 @@
             z-index: 10;
         }
 
-        /* Meni */
+        /* Poenoten meni (max-width: 800px) */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -66,7 +65,7 @@
             color: #000;
         }
 
-        /* Osrednji del strani */
+        /* Osrednji del - poenotena širina 800px */
         .container {
             max-width: 800px;
             width: 90%;
@@ -76,6 +75,7 @@
             box-sizing: border-box;
         }
 
+        /* Enaka velikost naslova (2.2em) */
         h1 {
             font-size: 2.2em;
             margin-bottom: 20px;
@@ -104,7 +104,7 @@
             object-fit: contain;
         }
 
-        /* Spodnji pas z zameglitvijo */
+        /* Spodnji pas */
         .footer-band {
             width: 100%;
             background-color: rgba(251, 251, 251, 0.8);
@@ -115,7 +115,6 @@
             z-index: 10;
         }
 
-        /* Noga */
         .footer {
             max-width: 800px;
             width: 90%;
@@ -147,25 +146,22 @@
 </head>
 <body>
 
-    <!-- Zgornji pas -->
     <header class="header-band">
         <nav class="navbar">
             <a class="navbar-brand" href="index.html">Smail Festić</a>
             <div class="navbar-links">
-    <a href="index.html">O meni</a>
-    <a href="video.html">Video</a>
-    <a href="umetnine.html">Predstavitev</a>
-    <a href="intervju.html">Intervju</a>
-    <a href="muzej.html">Muzej Smail Festić</a>
+                <a href="index.html">O meni</a>
+                <a href="video.html" style="color: #000; font-weight: bold;">Video</a>
+                <a href="umetnine.html">Predstavitev</a>
+                <a href="intervju.html">Intervju</a>
+                <a href="muzej.html">Muzej Smail Festić</a>
             </div>
         </nav>
     </header>
 
-    <!-- Vsebina -->
     <div class="container">
         <h1>Predstavitveni video</h1>
         <div class="video-wrapper">
-            <!-- Povezava do vašega lokalnega videa z ustreznim zapisom presledka (%20) -->
             <video controls>
                 <source src="vrh%20moci_Smail.mp4" type="video/mp4">
                 Vaš brskalnik ne podpira predvajanja videa.
@@ -173,11 +169,10 @@
         </div>
     </div>
 
-    <!-- Spodnji pas -->
     <footer class="footer-band">
         <div class="footer">
             <span>Kontakt:</span>
-            <a href="https://www.facebook.com" target="_blank">Facebook</a>
+            <a href="https://www.facebook.com/mkcsmailfestic" target="_blank">Facebook</a>
         </div>
     </footer>
 
